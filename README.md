@@ -47,4 +47,5 @@ This device uses 3 off-the-shelve modules and a few components:
 
 # rfblaster MQTT
 ![rfblaster](doc/6.png)
+![rfblaster](doc/9.png)
 
