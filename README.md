@@ -21,9 +21,9 @@ the source includes some codes for 3 different receiver brands that I own. You c
 ![rfblaster](doc/8.png)
 
 ## Warning
-The rf transmitters I used destroy themselves when they are continuously transmitting a "1". Their DATA pin must not be high all the time; but only pulsed to send a signal. In the hardware design here, this has to be done by the arduino. It's GPIO has to be high so that the tansistor pulls down the DATA pin. If the arduino GPIO is low or floating for a long period, the transmitter will get damaged.
+The rf transmitters I used destroy themselves when they are continuously transmitting a "1". Their DATA pin must not be high all the time; but only pulsed to send a signal. In the hardware design here, this has to be done by the arduino. It's GPIO has to be high so that the transistor pulls down the DATA pin. If the arduino GPIO is low or floating for a long period, the transmitter will get damaged.
 
-A better design would use PNP transistors so that the transmitter would be off in the down/floating state of arduino GPIO and only on then the pin is high.
+A better design would use PNP transistors so that the transmitter would be off in the down/floating state of arduino GPIO and only on then the GPIO is high.
 
 ## Versions
 * [rfblaster-usb](rfblaster-usb/) uses an arduino and is controlled by RS232 (serial) commands via USB 
