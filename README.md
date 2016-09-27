@@ -29,7 +29,7 @@ This device uses 3 off-the-shelve modules and a few components:
 * Arduino nano
 * 5V->12V DC/DC converter (looks like a USB-drive in the images)
 * 433MHz transmitter module (see slides for name/link). This requires the 12V from the converter for a strong enough signal
-* 3 BC547 BJT transistors. these are directly controlled by arduino GPIOs and drive 2 LEDs and the rf-signal
+* 3 BC547 BJT NPN transistors. these are directly controlled by arduino GPIOs and drive 2 LEDs and the rf-signal. other NPN transistors should be ok too.
 * 3 1k resistors for the LEDs; they are connected to the 12V from the converter
 * 1 2k pull-up resistor for the rf-signal in. this pulls the DATA line of the transmitter high; the third transistor pulls this low to create a 0-12V data signal
 * 1 20µF capacitor for the 12V output of the converter. Maybe not needed, other values should be fine too.
