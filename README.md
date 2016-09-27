@@ -12,6 +12,7 @@ Check the slides for more infos: [doc/04-smarthome.pdf](doc/04-smarthome.pdf)
 the source includes some codes for 3 different receiver brands that I own. You can try those first. I found the following works well for figuring out new codes: 
 
 * connect an oscilloscope (digital storage) to the antenna of the remote for your receivers and record the signal. 
+* alternative: you can use a 433MHz receiver (usually included with the transmitters you need; see slides) and record it's output with a singal analyzer; even GPIO in of arduino should work. Getting the timing right is more difficult this way though.
 * Write down the code... They are very short and you can clearly see how 1/0 are transmitted.
 * implement methods for sending 1 and 0 (some use ternary codes; 0, 1 and 2)
 * save the code as 0/1/(2) sequences and generate the whole signal with the correct timing
