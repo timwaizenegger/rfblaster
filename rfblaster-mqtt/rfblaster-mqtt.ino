@@ -12,8 +12,12 @@
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
 
-const char* ssid = "hive_iot";
-const char* password = "parailoo";
+const char* ssid = "xxx";
+const char* password = "wifi-pw";
+/*
+These settings are for use with the IBM Watson IoT service. OtherMQTT brokers use different
+account types. You need to modify the connect-call later where these values are used.
+*/
 const char* mq_org = "tju8ax";
 const char* mq_type = "ESP8266";
 const char* mq_id = "rf_sender";
