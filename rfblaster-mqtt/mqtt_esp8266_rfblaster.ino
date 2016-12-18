@@ -12,24 +12,20 @@
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
 
-const char* ssid = "xxx";
-const char* password = "wifi-pw";
+const char* ssid = "hive_iot";
+const char* password = "xxx";
 /*
 These settings are for use with the IBM Watson IoT service. OtherMQTT brokers use different
 account types. You need to modify the connect-call later where these values are used.
 */
-const char* mq_org = "tju8ax";
-const char* mq_type = "ESP8266";
-const char* mq_id = "rf_sender";
-const char* mq_user = "use-token-auth";
-const char* mq_authtoken = "u1hOG+o2El3-dotuUE";
-const char* mq_clientId = "d:tju8ax:ESP8266:rf_sender"; //"d:"+mq_org+":"+mq_type+":"+mq_id;
-const char* mq_serverUrl = "tju8ax.messaging.internetofthings.ibmcloud.com";
+const char* mq_id = "rf_blaster";
+const char* mq_authtoken = "xxx";
+const char* mq_serverUrl = "timsrv.de";
 
 
 
 WiFiClient espClient;
-PubSubClient client(espClient);
+PubSubClient client(mq_serverUrl, 1883, espClient);
 #define RFPIN 12
 #define RF_indicator_PIN 13
 #define MQTTPIN 14
@@ -429,11 +425,11 @@ void reconnect() {
     digitalWrite(MQTTPIN, 0);
     Serial.print("Attempting MQTT connection...");
     // Attempt to connect
-    if (client.connect(mq_clientId, mq_user, mq_authtoken)) {
+    if (client.connect(mq_id, mq_id, mq_authtoken)) {
       Serial.println("connected");
       digitalWrite(MQTTPIN, 1);
       // ... and resubscribe
-      client.subscribe("iot-2/cmd/send/fmt/json");
+      client.subscribe("rf_blaster/code");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -450,7 +446,7 @@ void reconnect() {
 /////////////////////////////////////////////////////////////////
 // ARDUINO API
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(57600);
   pinMode(RFPIN, OUTPUT);
   pinMode(RF_indicator_PIN, OUTPUT);
   pinMode(MQTTPIN, OUTPUT);
